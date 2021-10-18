@@ -7,10 +7,7 @@ import { ContactComponent } from 'src/app/contact/contact.component';
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      { path: 'tracker', component: TrackerComponent },
-      { path: 'tracker/contact', component: ContactComponent },
-    ]),
+    RouterModule.forChild([{ path: 'tracker', component: TrackerComponent }]),
   ],
 })
 export class TrackerModule {}

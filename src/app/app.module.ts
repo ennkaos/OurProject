@@ -27,6 +27,7 @@ import { TrackerModule } from './tracker/tracker/tracker.module';
       { path: 'home', component: MainComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'tracker', component: TrackerModule },
+      { path: 'contact', component: ContactComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
   ],
