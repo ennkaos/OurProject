@@ -8,10 +8,15 @@ import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { TracherModule } from './tracker/tracher/tracher.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TrackerModule } from './tracker/tracker/tracker.module';
+
 import { StatusComponent } from './main/status/status.component';
 import { MainPipe } from './main/main.pipe';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { MainPipe } from './main/main.pipe';
   ],
   imports: [
     TrackerModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -37,6 +43,8 @@ import { MainPipe } from './main/main.pipe';
       { path: '**', component: PageNotFoundComponent },
     ]),
   ],
+
+
   providers: [],
   bootstrap: [AppComponent],
 })

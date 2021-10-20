@@ -1,5 +1,9 @@
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Countries } from './countries';
+
+import { MainInterface } from './main-interface';
+
 import { MainService } from './main.service';
 
 @Component({
@@ -7,6 +11,7 @@ import { MainService } from './main.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
+
 export class MainComponent implements OnInit, OnDestroy {
   result!: Countries[];
   worldWide!: any;
@@ -87,6 +92,7 @@ export class MainComponent implements OnInit, OnDestroy {
               next: (response) => {
                 this.yourIP = response;
                 this.yourCountryInfo = GetCountryData();
+
 
                 return this.yourIP;
                 // filtering the Corona Aray with the Country Name
