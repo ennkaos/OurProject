@@ -1,9 +1,11 @@
-
-
-<div class="row" style="height: 100px">
-  <app-header></app-header>
+<div class="container-fluid w-100" style="margin: 0px; padding: 0px">
+  <div class="row" style="height: 100px">
+    <app-header></app-header>
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
 </div>
-
-<router-outlet></router-outlet>
-<app-footer></app-footer>
-
