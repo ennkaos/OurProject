@@ -82,6 +82,8 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
 
+            "proxyConfig": "src/proxy.conf.json",
+
             "browserTarget": "TrackerCovid:build"
 
           }

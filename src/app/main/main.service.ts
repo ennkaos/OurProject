@@ -26,35 +26,45 @@ export class MainService {
     return throwError(errorMessage);
   }
   getAllCountries() {
+
     const url =
       'https://covid-19-coronavirus-statistics2.p.rapidapi.com/totalData';
+
 
     var options = {
       method: 'GET',
 
       headers: new HttpHeaders({
+
         'x-rapidapi-host': 'covid-19-coronavirus-statistics2.p.rapidapi.com',
+
         'x-rapidapi-key': '019a152a52msh1d1ddf38f7b47c3p1ac5e8jsn0477be915fe2',
         'Access-Control-Allow-Origin': '*',
       }),
     };
 
+
     return this.http.get<any>(url, options).pipe(
+
       tap((data) => JSON.stringify(data)),
       catchError(this.handleError)
     );
   }
   getIpLocation() {
+
     const url = '/api/*';
 
     var options = {
+
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*',
       }),
     };
+
     return this.http
       .get(url, options)
       .pipe(tap((data) => console.log(JSON.stringify(data))));
+
   }
 
   getDataFromIpLocation(iplocation: string) {
@@ -70,4 +80,5 @@ export class MainService {
     };
     return this.http.get(url2, options).pipe(tap((data) => data));
   }
+
 }

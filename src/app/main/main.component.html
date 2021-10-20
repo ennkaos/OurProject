@@ -1,5 +1,10 @@
+
 <ng-container>
   <div class="container text-light">
+
+
+
+
     <h1 class="text-center mb-5">Situation World Wide</h1>
     <h3 class="text-center mb-5">Last Update {{ lastUpdate }}</h3>
     <div
@@ -20,6 +25,7 @@
           flex-column
         "
         *ngFor="let item of name; let i = index"
+
         [name]="name[i]"
         [data]="result[item]"
         [colors]="colors[i]"
@@ -32,6 +38,7 @@
           <span class="sr-only">Loading...</span>
         </div>
         <div *ngIf="yourIP" class="card-body">
+
           <h5 class="card-title">Your Position</h5>
           <p class="card-text">
             We collect data just for our services . Your informations are
@@ -68,3 +75,4 @@
     </div>
   </div>
 </ng-container>
+
