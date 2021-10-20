@@ -1,20 +1,71 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <nav class="navbar-expand-lg">
-
-      <div class=" col-sm-6">
-        <img class="img-fluid " style="width:30%" src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.sanita24.ilsole24ore.com%2Fart%2Fdal-governo%2F2021-04-01%2Fcovid-23649-nuovi-contagi-356mila-tamponi-e-501-decessi-182950.php%3Fuuid%3DAD9mspUB&psig=AOvVaw0tL0KilEm9EbrDooDSYT-m&ust=1634394103737000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjsuNnOzPMCFQAAAAAdAAAAABAD" alt=""/>
+<input
+  type="checkbox"
+  (click)="onClickOpenMenu()"
+  [checked]="isMenuOpen"
+  id="burger-toggle"
+/>
+<label for="burger-toggle" class="burger-menu">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</label>
+<div class="menu" *ngIf="isMenuOpen">
+  <div class="menu-inner">
+    <ul class="menu-nav">
+      <li class="menu-nav-item" (click)="onClickOpenMenu()">
+        <a class="menu-nav-link text-light" [routerLink]="['/home']"
+          ><span>
+            <div>Home</div>
+          </span></a
+        >
+      </li>
+      <li class="menu-nav-item" (click)="onClickOpenMenu()">
+        <a class="menu-nav-link" [routerLink]="['/tracker']"
+          ><span>
+            <div>Statistics</div>
+          </span></a
+        >
+      </li>
+      <li class="menu-nav-item" (click)="onClickOpenMenu()">
+        <a class="menu-nav-link" [routerLink]="['/contact']"
+          ><span>
+            <div>Contact</div>
+          </span></a
+        >
+      </li>
+    </ul>
+    <div class="gallery">
+      <div class="title">
+        <p>Covid Tracker</p>
       </div>
-      <div class=" col-sm-6">
-        <ul>
-          <li class="active-item"><a routerLink="['/home']" href="">home</a></li>
-          <li class="active-item"><a  routerLink="['/tracher']" href="">Tracker</a></li>
-          <li class="active-item"><a href=""></a></li>
-        </ul>
+      <div class="images">
+        <a class="image-link" [routerLink]="['/home']" href="#">
+          <div class="image" data-label="Home" (click)="onClickOpenMenu()">
+            <img src="../../assets/images/home.jpg" alt="" />
+          </div>
+        </a>
+        <a
+          class="image-link"
+          [routerLink]="['/tracker']"
+          (click)="onClickOpenMenu()"
+        >
+          <div class="image" data-label="Tracker">
+            <img src="../../assets/images/statistics.jpg" alt="" />
+          </div>
+        </a>
+        <a
+          class="image-link"
+          [routerLink]="['/Contact']"
+          (click)="onClickOpenMenu()"
+        >
+          <div class="image" data-label="Contact">
+            <img src="../../assets/images/contact.jpg" alt="" />
+          </div>
+        </a>
       </div>
-    </nav>
-
+      <h2 class="text-light mt-5">Created By Alexandru And Giulia</h2>
+    </div>
   </div>
 
 </div>
