@@ -1,0 +1,18 @@
+<div *ngIf="!data" class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div
+  *ngIf="data"
+  class="col-sm-2 d-flex justify-content-center align-items-center flex-column"
+>
+  <div
+    [ngClass]="colors"
+    class="rounded-circle d-flex justify-content-center align-items-center"
+    style="width: 120px; height: 120px"
+  >
+    <h5 class="font-weight-bold">
+      {{ data }}
+    </h5>
+  </div>
+  <span>{{ name }}</span>
+</div>

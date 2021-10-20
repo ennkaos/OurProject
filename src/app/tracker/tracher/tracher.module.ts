@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import {TrackerComponent} from '../tracker.component';
 import { RouterModule } from '@angular/router';
-import { TrackerComponent } from '../tracker.component';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [TrackerComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: 'tracker',
-        component: TrackerComponent,
-      },
-    ]),
-  ],
+        component: TrackerComponent
+      }
+    ])
+
+  ]
 })
-export class TrackerModule {}
+export class TracherModule { }
