@@ -1,8 +1,8 @@
 
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Countries } from './countries';
 
-import { MainInterface } from './main-interface';
 
 import { MainService } from './main.service';
 
@@ -13,7 +13,10 @@ import { MainService } from './main.service';
 })
 
 export class MainComponent implements OnInit, OnDestroy {
-  result!: Countries[];
+  result!: any;
+
+
+
   worldWide!: any;
   errorMessage: any;
   yourCountryInfo!: Countries | null | any;
@@ -24,9 +27,12 @@ export class MainComponent implements OnInit, OnDestroy {
   lastUpdate!: string;
   name!: string[];
   colors: string[] = [
-    'bg-primary text-white',
+
+    'bg-dark text-white',
     'bg-warning text-white',
-    'bg-danger text-white',
+    'bg-success text-white',
+
+
     'bg-secondary text-white',
     'bg-dark text-white',
     'bg-info text-white',
@@ -40,21 +46,13 @@ export class MainComponent implements OnInit, OnDestroy {
       try {
         this.results = await this.mainService.getAllCountries().subscribe({
           next: (response) => {
-            console.log(response);
-            this.result = response;
+
+            this.result = response.result;
+            console.log(this.result);
             setTimeout(() => {}, 1000);
-            this.worldWide = response[0];
-            this.lastUpdate = this.worldWide['Last Update'];
-            this.name = Object.getOwnPropertyNames(this.worldWide);
-            this.name = this.name.filter((item) => {
-              return item !== 'Country_text' && item !== 'Last Update'
-                ? item
-                : null;
-            });
-            this.worldWide = this.mainService.sortingData(
-              this.name,
-              this.worldWide
-            );
+            this.name = Object.getOwnPropertyNames(this.result);
+            console.log(this.name);
+
           },
           error: (err) => (this.errorMessage = err),
         });
@@ -64,18 +62,22 @@ export class MainComponent implements OnInit, OnDestroy {
         );
       }
     })();
-    //collecting data from error since Observable is a bullshit IP Location
+
+    // collecting data from error since Observable is a bullshit IP Location
+
     (async () => {
       try {
         this.ipLocation = await this.mainService.getIpLocation().subscribe({
           next: (item) => {
-            setTimeout(() => {
-              console.log(item);
-            }, 2000);
+
+            console.log(item);
           },
 
           error: (error) => {
-            GetAdress(error.error.text);
+            GetAdress(
+              error.error.text.substring(19, error.error.text.length - 4)
+            );
+
           },
         });
       } catch (error) {
@@ -91,9 +93,8 @@ export class MainComponent implements OnInit, OnDestroy {
             .subscribe({
               next: (response) => {
                 this.yourIP = response;
-                this.yourCountryInfo = GetCountryData();
 
-
+ 
                 return this.yourIP;
                 // filtering the Corona Aray with the Country Name
               },
@@ -102,23 +103,9 @@ export class MainComponent implements OnInit, OnDestroy {
         } catch (error) {}
       })();
     };
-    const GetCountryData = () => {
-      async () => {
-        try {
-          const result = this.mainService.getYourCountryData(
-            this.yourIP.country_code,
-            this.yourIP.country,
-            this.result,
-            this.yourCountryInfo
-          );
 
-          return result;
-        } catch (error) {
-          console.log(error);
-          return error;
-        }
-      };
-    };
+
+
     //collecting  data from your Ip Location
   }
   ngOnDestroy(): void {

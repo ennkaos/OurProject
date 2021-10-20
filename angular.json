@@ -70,6 +70,7 @@
           "configurations": {
             "production": {
               "browserTarget": "TrackerCovid:build:production"
+
             },
             "development": {
               "browserTarget": "TrackerCovid:build:development"
@@ -80,7 +81,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+
             "proxyConfig": "src/proxy.conf.json",
+
             "browserTarget": "TrackerCovid:build"
 
           }

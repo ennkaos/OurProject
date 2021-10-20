@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HttpClientModule } from '@angular/common/http';
+
 import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,7 +17,6 @@ import { TrackerModule } from './tracker/tracker/tracker.module';
 import { StatusComponent } from './main/status/status.component';
 import { MainPipe } from './main/main.pipe';
 
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
