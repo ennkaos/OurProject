@@ -1,5 +1,74 @@
 
+<ng-container>
+  <div class="container">
+    <h1 class="text-center mb-5">Situation World Wide</h1>
+    <h3 class="text-center mb-5">Last Update {{ lastUpdate }}</h3>
+    <div
+      class="
+        row
+        justify-content-around
+        d-flex
+        align-items-center
+        flex-wrap flex-row
+      "
+    >
+      <app-status
+        class="
+          col-sm-2
+          d-flex
+          justify-content-center
+          align-items-center
+          flex-column
+        "
+        *ngFor="let item of name; let i = index"
+        [name]="item"
+        [data]="worldWide[i]"
+        [colors]="colors[i]"
+      ></app-status>
+    </div>
+    <div *ngIf="yourIP" class="row">
+      <div class="card bg-dark text-light" style="width: 18rem; z-index: -100">
+        <div class="card-body">
+          <h5 class="card-title">Your Position</h5>
+          <p class="card-text">
+            We collect data just for our services . Your informations are
+            bellow:
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Continent: <span>{{ yourIP.continent }}</span>
+          </li>
+          <li class="list-group-item">
+            Country: <span>{{ yourIP.country }}</span>
+          </li>
+          <li class="list-group-item">
+            Country Code: <span>{{ yourIP.country_code }}</span>
+          </li>
+          <li class="list-group-item">
+            Your IP: <span>{{ yourIP.ip }}</span>
+          </li>
+          <li class="list-group-item">
+            Country Flag:
+            <img
+              class="img-fluid"
+              style="width: 30px"
+              src="{{ yourIP.country_flag }}"
+            />
+          </li>
+          <li class="list-group-item">
+            TimeZone : <span>{{ yourIP.timezone_name }}</span>
+          </li>
+        </ul>
+        <div class="card-body"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
 <div class="container-fluid bg-dark">
   <p>Vreau sa ma bat</p>
 </div>
+
 

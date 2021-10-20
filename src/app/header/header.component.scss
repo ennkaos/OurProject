@@ -27,6 +27,7 @@ p {
   position: absolute;
   appearance: none;
   opacity: 0;
+  color: white;
 
   &:checked {
     & ~ .menu {
@@ -80,6 +81,7 @@ p {
   top: 5vh;
   left: 5vw;
   z-index: 100;
+  color: rgb(200, 209, 218) !important;
   display: block;
   width: var(--burger-menu-radius);
   height: var(--burger-menu-radius);
@@ -91,7 +93,7 @@ p {
     left: 25%;
     width: 50%;
     height: 3px;
-    background: hsla(210, 29%, 24%, 0.3);
+    background: hsl(0, 0%, 0%);
     border-radius: 10px;
     overflow: hidden;
     transition: 0.5s;
