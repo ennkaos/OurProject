@@ -1,10 +1,5 @@
-
 <ng-container>
-  <div class="container text-light">
-
-
-
-
+  <div class="container-fluid text-light" style="margin: 0px; padding: 0px">
     <h1 class="text-center mb-5">Situation World Wide</h1>
     <h3 class="text-center mb-5">Last Update {{ lastUpdate }}</h3>
     <div
@@ -25,20 +20,36 @@
           flex-column
         "
         *ngFor="let item of name; let i = index"
-
         [name]="name[i]"
         [data]="result[item]"
         [colors]="colors[i]"
       ></app-status>
     </div>
-
-    <div *ngIf="yourIP" class="row mt-5">
+    <div
+      class="
+        bg-dark
+        row
+        w-100
+        mt-5
+        mb-5
+        text-light text-center
+        d-flex
+        justify-content-center
+        align-content-center
+      "
+      style="height: 100px; margin-left: 0px"
+    >
+      <div *ngIf="!yourIP" class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <h1 *ngIf="yourIP">Your Country Situation : {{ yourIP.country }}</h1>
+    </div>
+    <div *ngIf="yourIP" class="row mt-5 mb-5 d-flex justify-content-around">
       <div class="card bg-dark text-light" style="width: 18rem; z-index: -100">
         <div *ngIf="!yourIP" class="spinner-border text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div>
         <div *ngIf="yourIP" class="card-body">
-
           <h5 class="card-title">Your Position</h5>
           <p class="card-text">
             We collect data just for our services . Your informations are
@@ -72,7 +83,18 @@
         </ul>
         <div class="card-body"></div>
       </div>
+
+      <div class="col-lg-6">
+        <div class="row d-flex justify-content-between">
+          <app-status
+            class="col-sm-2"
+            *ngFor="let item of name; let i = index"
+            [name]="name[i]"
+            [data]="countryLocatedInfo[item]"
+            [colors]="colors[i]"
+          ></app-status>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>
-

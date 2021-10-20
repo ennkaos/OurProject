@@ -11,11 +11,7 @@ export class StatusComponent implements OnInit {
   @Input() data!: any;
   @Input() colors!: string;
 
-
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
-
+  ngOnInit(): void {}
 }

@@ -25,37 +25,30 @@ export class MainService {
     console.error(err);
     return throwError(errorMessage);
   }
-  getAllCountries() {
-
+  getWorldData() {
     const url =
-      'https://covid-19-coronavirus-statistics2.p.rapidapi.com/totalData';
-
+      'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/world';
 
     var options = {
       method: 'GET',
 
       headers: new HttpHeaders({
-
-        'x-rapidapi-host': 'covid-19-coronavirus-statistics2.p.rapidapi.com',
-
+        'x-rapidapi-host':
+          'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com',
         'x-rapidapi-key': '019a152a52msh1d1ddf38f7b47c3p1ac5e8jsn0477be915fe2',
         'Access-Control-Allow-Origin': '*',
       }),
     };
 
-
     return this.http.get<any>(url, options).pipe(
-
       tap((data) => JSON.stringify(data)),
       catchError(this.handleError)
     );
   }
   getIpLocation() {
-
     const url = '/api/*';
 
     var options = {
-
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*',
       }),
@@ -64,7 +57,6 @@ export class MainService {
     return this.http
       .get(url, options)
       .pipe(tap((data) => console.log(JSON.stringify(data))));
-
   }
 
   getDataFromIpLocation(iplocation: string) {
@@ -80,5 +72,51 @@ export class MainService {
     };
     return this.http.get(url2, options).pipe(tap((data) => data));
   }
+  filterData(array: string[]) {
+    return array
+      .filter((item, index) => {
+        if (
+          item === 'ActiveCases' ||
+          item === 'TotalCases' ||
+          item === 'TotalDeaths' ||
+          item === 'TotalRecovered' ||
+          item === 'NewCases' ||
+          item === 'Case_Fatality_Rate'
+        ) {
+          return item;
+        } else {
+          return null;
+        }
+      })
+      .reverse();
+  }
+  getCountryData() {
+    let url3: string = `https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/`;
+    var options = {
+      method: 'GET',
 
+      headers: {
+        'x-rapidapi-host':
+          'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com',
+        'x-rapidapi-key': '019a152a52msh1d1ddf38f7b47c3p1ac5e8jsn0477be915fe2',
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+    return this.http.get(url3, options).pipe(
+      tap((data) => {
+        console.log(JSON.stringify(data));
+      })
+    );
+  }
+  sortAllData(country: string[], countries: any[]): any {
+    return countries.filter((item) => {
+      if (item.Country.toString() === country[0].toString()) {
+        return item;
+      } else if (item.Country.toString() === country[1].toString()) {
+        return item;
+      } else {
+        return null;
+      }
+    });
+  }
 }
