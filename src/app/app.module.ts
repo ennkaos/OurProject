@@ -8,8 +8,11 @@ import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { TracherModule } from './tracker/tracher/tracher.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TrackerModule } from './tracker/tracker/tracker.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,7 @@ import { TrackerModule } from './tracker/tracker/tracker.module';
   ],
   imports: [
     TrackerModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
@@ -31,6 +35,8 @@ import { TrackerModule } from './tracker/tracker/tracker.module';
       { path: '**', component: PageNotFoundComponent },
     ]),
   ],
+
+
   providers: [],
   bootstrap: [AppComponent],
 })
