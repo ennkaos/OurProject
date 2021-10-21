@@ -1,0 +1,27 @@
+<ng-container>
+  <div class="container mb-5">
+    <a
+      style="text-decoration: none"
+      href="{{ data.link }} "
+      target="_blank"
+      rel="noopener"
+    >
+      <div class="glass text-secondary">
+        <div class="row">
+          <div class="col-sm-6 d-flex justify-content-center">
+            <img class="img-fluid image" src="{{ data.urlToImage }}" />
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+              <h3>{{ data.title }}</h3>
+            </div>
+
+            <div class="row">
+              <p>{{ data.content.slice(0, data.content.length - 13) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</ng-container>

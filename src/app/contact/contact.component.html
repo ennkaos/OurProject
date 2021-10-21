@@ -1,1 +1,32 @@
-<p>contact works!</p>
+<div class="container d-flex justify-content-center">
+  <div class="col-sm-6 d-flex justify-content-center">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          formControlName="name"
+          aria-describedby="emailHelp"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+
+        <textarea
+          name="password"
+          id="exampleInputPassword1"
+          cols="30"
+          rows="10"
+          formControlName="password"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
