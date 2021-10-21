@@ -56,7 +56,7 @@ export class MainService {
 
     return this.http
       .get(url, options)
-      .pipe(tap((data) => console.log(JSON.stringify(data))));
+      .pipe(tap((data) => JSON.stringify(data)));
   }
 
   getDataFromIpLocation(iplocation: string) {
@@ -104,7 +104,7 @@ export class MainService {
     };
     return this.http.get(url3, options).pipe(
       tap((data) => {
-        console.log(JSON.stringify(data));
+        JSON.stringify(data);
       })
     );
   }

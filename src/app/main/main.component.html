@@ -88,13 +88,39 @@
         <div class="row d-flex justify-content-between">
           <app-status
             class="col-sm-2"
-            *ngFor="let item of name; let i = index"
-            [name]="name[i]"
+            *ngFor="let item of Countryname; let i = index"
+            [name]="item[i]"
             [data]="countryLocatedInfo[item]"
             [colors]="colors[i]"
           ></app-status>
         </div>
       </div>
     </div>
+    <div
+      class="
+        row
+        justify-content-around
+        d-flex
+        align-items-center
+        flex-wrap flex-row
+      "
+    ></div>
+    <div
+      class="
+        bg-dark
+        row
+        w-100
+        mt-5
+        mb-5
+        text-light text-center
+        d-flex
+        justify-content-center
+        align-content-center
+      "
+      style="height: 100px; margin-left: 0px"
+    >
+      <h1>Latest News Regarding Covid 19</h1>
+    </div>
+    <app-news></app-news>
   </div>
 </ng-container>

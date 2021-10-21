@@ -14,7 +14,7 @@ export class MainComponent implements OnInit, OnDestroy {
   yourCountryInfo!: Countries | null | any;
   yourIP!: any;
   results!: any;
-
+  Countryname!: any[];
   ipLocation: any;
   filteredArray!: any[];
   countryInfo!: any;
@@ -106,8 +106,13 @@ export class MainComponent implements OnInit, OnDestroy {
                                 countryArray,
                                 this.countryInfo
                               )[0];
-                            console.log(this.countryLocatedInfo[0]);
-                            return this.countryLocatedInfo[0];
+                            this.Countryname = this.mainService.filterData(
+                              Object.getOwnPropertyNames(
+                                this.countryLocatedInfo
+                              )
+                            );
+
+                            return this.countryLocatedInfo;
                           },
                           error: (err) => {
                             console.log(err);
@@ -117,7 +122,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
                     //filter the countries [] using yourIp adress and location
 
-                    console.log(this.countryLocatedInfo);
                     return this.yourIP;
                     // filtering the Corona Aray with the Country Name
                   },
@@ -135,6 +139,5 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.results.unsubscribe();
     this.ipLocation.unsubscribe();
-    throw new Error('Method not implemented.');
   }
 }
