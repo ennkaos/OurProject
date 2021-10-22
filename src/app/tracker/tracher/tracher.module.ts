@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 
     RouterModule.forChild([
       {
-        path: '/',
+        path: 'tracker',
         component: TrackerComponent,
       },
     ]),
