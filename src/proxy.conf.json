@@ -1,8 +1,1 @@
-{
-  "/api/*": {
-      "target": "https://api.ipify.org?format=jsonp&callback=getIP",
-      "secure": true,
-      "logLevel": "debug",
-      "changeOrigin": true
-  }
-}
+

@@ -1,3 +1,24 @@
-<div *ngFor="let item of news$[0].news">
-  <app-story [data]="item"></app-story>
-</div>
+<ng-container>
+  <div *ngFor="let item of news$">
+    <app-story [data]="item"></app-story>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="{{ isFirst ? 'page-item disabled' : 'page-item' }}">
+          <button
+            [disabled]="isFirst"
+            (click)="SetPageReturn()"
+            class="page-link"
+          >
+            Previous
+          </button>
+        </li>
+
+        <li class="page-item">
+          <button (click)="SetPage()" class="page-link">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</ng-container>

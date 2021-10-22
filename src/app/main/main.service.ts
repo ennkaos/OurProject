@@ -48,14 +48,8 @@ export class MainService {
   getIpLocation() {
     const url = '/api/*';
 
-    var options = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-      }),
-    };
-
     return this.http
-      .get(url, options)
+      .get('https://api.ipify.org?format=json')
       .pipe(tap((data) => JSON.stringify(data)));
   }
 
